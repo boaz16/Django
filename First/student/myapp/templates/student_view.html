@@ -1,0 +1,25 @@
+<h1>Students</h1>
+
+<div>
+    <table border="8">
+        <tr><th>Name</th><th>Course</th><th>Address</th><th>Age</th><th>View Details</th><th>Delete</th></tr>
+        {% for s in students %}
+        <tr>
+            <td>{{ s.name }}</td>
+            <td>{{ s.address }}</td>
+            <td>{{ s.course }}</td>
+            <td>{{ s.age }}</td>
+            <td>
+                <a href="{% url 'getsinglestudent' s.pk %}">
+                    <input type="button" value="View">
+                </a>
+            </td>
+            <td>
+                <a href="{% url 'viewstudentdetails' s.pk %}">
+                <input type="button" value="Delete">
+                </a>
+            </td>
+        </tr>
+    {% endfor %}
+    </table>
+</div>

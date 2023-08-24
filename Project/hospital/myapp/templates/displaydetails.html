@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>User Details</title>
+  <style>
+    body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+    }
+    table {
+      width: 50%;
+      border-collapse: collapse;
+      text-align: left;
+      font-size: 18px;
+    }
+    th, td {
+      padding: 10px;
+      border: 1px solid #ddd;
+    }
+    th {
+      background-color: #f2f2f2;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+<h1>User Details</h1>
+<table>
+  <tr>
+    <th>Field</th>
+    <th>Value</th>
+  </tr>
+  <tr>
+    <td><strong>Name:</strong></td>
+    <td>{{ user.name }}</td>
+  </tr>
+  <tr>
+    <td><strong>Age:</strong></td>
+    <td>{{ user.age }}</td>
+  </tr>
+  <tr>
+    <td><strong>Email:</strong></td>
+    <td>{{ user.email }}</td>
+  </tr>
+  <tr>
+    <td><strong>Address:</strong></td>
+    <td>{{ user.address }}</td>
+  </tr>
+  <tr>
+    <td><strong>Blood Group:</strong></td>
+    <td>{{ user.blood_group }}</td>
+  </tr>
+  <tr>
+    <td><strong>Gender:</strong></td>
+    <td>{{ user.gender }}</td>
+  </tr>
+  <tr>
+    <td><strong>Weight:</strong></td>
+    <td>{{ user.weight }}</td>
+  </tr>
+  <tr>
+    <td><strong>Contact:</strong></td>
+    <td>{{ user.contact }}</td>
+  </tr>
+</table>
+<table>
+    <!-- ... User details rows ... -->
+    <tr>
+      <td colspan="2">
+        <form method="post" action="/save_observation">
+          {% csrf_token %}
+          <label for="observation"><strong>Observation:</strong></label><br>
+          <textarea id="observation" name="observation" rows="4" cols="50"></textarea><br>
+          <input type="hidden" value="{{ user.id }}" name="userid">
+          <input type="submit" value="Save Observation">
+        </form>
+      </td>
+    </tr>
+  </table>
+
+
+</body>
+</html>

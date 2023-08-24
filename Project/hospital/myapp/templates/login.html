@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>HTML login page without CSS</title>
+</head>
+<body style="display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0;">
+
+<form id="loginForm" style="text-align: center;">
+  <div>
+    <label style="display: inline-block; width: 180px; font-size: 20px;">Email:</label>
+    <input type='email' autocomplete='username' id='email' style="font-size: 20px; padding: 10px 15px;">
+  </div>
+  <div>
+    <label style="display: inline-block; width: 180px; font-size: 20px;">Password:</label>
+    <input type='password' autocomplete='new-password' id='password' style="font-size: 20px; padding: 10px 15px;">
+  </div>
+  <input type="submit" value="Login" style="font-size: 20px; padding: 10px 25px; margin-top: 20px;">
+</form>
+
+<script>
+  document.getElementById('loginForm').addEventListener('submit', function(event) {
+    event.preventDefault(); // Prevent the form from submitting normally
+
+    var email = document.getElementById('email').value;
+    var password = document.getElementById('password').value;
+
+    // Replace these with your predetermined email and password
+    var predeterminedEmail = 'your@email.com';
+    var predeterminedPassword = 'yourpassword';
+
+    if (email === predeterminedEmail && password === predeterminedPassword) {
+      window.location.href = 'index'; // Redirect to the index page
+    } else {
+      alert('Login failed. Please try again.');
+    }
+  });
+</script>
+
+</body>
+</html>
